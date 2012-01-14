@@ -1,0 +1,37 @@
+<html>
+	<head>
+		<title>Simple DOM chain</title>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="jquery.domchain.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$("#Inspect *").CssInspector({
+					callback : function(results) {
+						// Returns an Array of each element
+						$(".Results").html(results.join(", "));
+					}
+				
+				});
+			});
+		</script>
+	</head>
+<body>
+	<div class="Results"><!-- Results of the inspection --></div>
+	
+	<div id="Inspect">
+		<ul>
+			<li>List 1</li>
+			<li>List 2</li>
+			<li>List 3</li>
+		</ul>
+		
+		<div class="Container">Container class</div>
+		
+		<table>
+			<tr class="RowClass">
+				<td>Table cell</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
