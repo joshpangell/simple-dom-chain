@@ -1,37 +1,241 @@
-<html>
-	<head>
-		<title>Simple DOM chain</title>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.domchain.js"></script>
-		<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Simple DOM chain</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery.domchain.js"></script>
+	<script type="text/javascript" src="google-code-prettify/prettify.js"></script>
+	<script type="text/javascript">
 			$(document).ready(function() {
-				$("#Inspect *").CssInspector({
+				$("*").DomInspector({
 					callback : function(results) {
 						// Returns an Array of each element
-						$(".Results").html(results.join(", "));
+						$(".results").html(results.join(", "));
 					}
 				
 				});
+			
+				// make code pretty
+			    window.prettyPrint && prettyPrint();
 			});
-		</script>
-	</head>
-<body>
-	<div class="Results"><!-- Results of the inspection --></div>
-	
-	<div id="Inspect">
-		<ul>
-			<li>List 1</li>
-			<li>List 2</li>
-			<li>List 3</li>
-		</ul>
+			
+	</script>
 		
-		<div class="Container">Container class</div>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/docs.css" rel="stylesheet">
+    <link href="google-code-prettify/prettify.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+           <a class="brand">Simple DOM demo</a>
+          <div class="nav-collapse">
+            &nbsp;
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container" id="Inspect">
+		<!-- Main hero unit for a primary marketing message or call to action -->
+      <div class="hero-unit">
+        <h1>Simple DOM chain demo</h1>
+        <p>This is a demo for the simple dom chain analyzer. A stroke is applied to the hovered area. Clicking on an element will reveal all of it's parents, including class name and ID. After initialization, links are inactive.</p>
+        <div class="alert alert-info">
+        	<h3 class="results">html, body<!-- Results of the inspection --></h3>
+        </div>
+        
+        <pre class="prettyprint linenums">
+$(document).ready(function() {
+	$("*").DomInspector({
+		callback : function(results) {
+			// Returns an Array of each element
+			$(".Results").html(results.join(", "));
+		}
+	});
+});
+        </pre>
+        
+      </div>
+
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="span4">
+          
+          <h3>Grayscale colors</h3>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@black</code></td>
+            <td>#000</td>
+            <td class="swatch-col"><span class="swatch" style="background-color: #000;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDarker</code></td>
+            <td>#222</td>
+            <td><span class="swatch" style="background-color: #222;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayDark</code></td>
+            <td>#333</td>
+            <td><span class="swatch" style="background-color: #333;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@gray</code></td>
+            <td>#555</td>
+            <td><span class="swatch" style="background-color: #555;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLight</code></td>
+            <td>#999</td>
+            <td><span class="swatch" style="background-color: #999;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@grayLighter</code></td>
+            <td>#eee</td>
+            <td><span class="swatch" style="background-color: #eee;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@white</code></td>
+            <td>#fff</td>
+            <td><span class="swatch swatch-bordered" style="background-color: #fff;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+          
+        </div>
+        <div class="span4">
+          
+          <h3>Accent colors</h3>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span2"><code>@blue</code></td>
+            <td>#049cdb</td>
+            <td class="swatch-col"><span class="swatch" style="background-color: #049cdb;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@green</code></td>
+            <td>#46a546</td>
+            <td><span class="swatch" style="background-color: #46a546;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@red</code></td>
+            <td>#9d261d</td>
+            <td><span class="swatch" style="background-color: #9d261d;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@yellow</code></td>
+            <td>#ffc40d</td>
+            <td><span class="swatch" style="background-color: #ffc40d;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@orange</code></td>
+            <td>#f89406</td>
+            <td><span class="swatch" style="background-color: #f89406;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@pink</code></td>
+            <td>#c3325f</td>
+            <td><span class="swatch" style="background-color: #c3325f;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@purple</code></td>
+            <td>#7a43b6</td>
+            <td><span class="swatch" style="background-color: #7a43b6;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      
+       </div>
+      
+       <div class="span4">
+       <h4>Form states and alerts</h4>
+      <table class="table table-bordered table-striped">
+        <tbody>
+          <tr>
+            <td class="span3"><code>@warningText</code></td>
+            <td>#f3edd2</td>
+            <td class="swatch-col"><span class="swatch" style="background-color: #f3edd2;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@warningBackground</code></td>
+            <td>#c09853</td>
+            <td><span class="swatch" style="background-color: #c09853;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorText</code></td>
+            <td>#b94a48</td>
+            <td><span class="swatch" style="background-color: #b94a48;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@errorBackground</code></td>
+            <td>#f2dede</td>
+            <td><span class="swatch" style="background-color: #f2dede;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successText</code></td>
+            <td>#468847</td>
+            <td><span class="swatch" style="background-color: #468847;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@successBackground</code></td>
+            <td>#dff0d8</td>
+            <td><span class="swatch" style="background-color: #dff0d8;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoText</code></td>
+            <td>#3a87ad</td>
+            <td><span class="swatch" style="background-color: #3a87ad;"></span></td>
+          </tr>
+          <tr>
+            <td><code>@infoBackground</code></td>
+            <td>#d9edf7</td>
+            <td><span class="swatch" style="background-color: #d9edf7;"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+     </div>
+      
 		
-		<table>
-			<tr class="RowClass">
-				<td>Table cell</td>
-			</tr>
-		</table>
-	</div>
-</body>
+      <hr>
+
+     <footer class="footer">
+      <div class="container">
+		<p>
+         Made by Josh Pangell, <a href="http://joshpangell.com">http://joshpangell.com</a><br>
+         This demo page was built using <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter bootstrap</a>
+        </p>
+      </div>
+    </footer>
+
+    </div> <!-- /container -->
+
+
+  </body>
 </html>

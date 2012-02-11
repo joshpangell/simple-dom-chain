@@ -3,9 +3,9 @@
 	/**
 	 *	Sets the inspector's hover and click methods
 	 *	to return the CSS chain
-	 * 	Invoke this like: $("*").CssInspector();
+	 * 	Invoke this like: $("*").DomInspector();
 	 */
-	$.fn.CssInspector = function(options) {
+	$.fn.DomInspector = function(options) {
 		/**
 	     *	Hover and click events for the element
 	     */
@@ -18,7 +18,7 @@
 			}
 		).click(function() {
 			 // Fire the call back with the result of the DOM inspection
-			 options.callback.call( this, $(this).ReturnCssChain() );
+			 options.callback.call( this, $(this).ReturnDomChain() );
 			 
 			 return false; // Prevents <a> from clicking through
 		});
@@ -30,7 +30,7 @@
 	 *	Drills down to the lowest element, then bubbles up with each
 	 *	Returns either array, uncomment to return a string 
 	 */
-	$.fn.ReturnCssChain = function() {
+	$.fn.ReturnDomChain = function() {
 		
 		var this_obj = ( $(this).attr("class") ) ? "."+$(this).attr("class") : false;
 		
