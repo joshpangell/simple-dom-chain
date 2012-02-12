@@ -1,5 +1,8 @@
 # jQuery plugin for simple dom chain inspector
 
+## Demo
+[http://joshpangell.github.com/simple-dom-chain/](http://joshpangell.github.com/simple-dom-chain)
+
 ## Description
 
 This is a simple jQuery plugin that returns a full DOM chain from a clicked element.
